@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_machine_usage: one
+  workers: 1
+
+two:
+  order_machine_usage: two
+  workers: 1
