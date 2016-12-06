@@ -1,0 +1,9 @@
+h1 Оборудование (Участнки)
+
+= link_to 'Добавить', new_machine_path, class: 'btn btn-success'
+br
+br
+table.table.table-condensed.table-striped
+  - @machines.each do |m|
+    tr
+      td= m.title

@@ -1,0 +1,2 @@
+module OrderMachineUsageIntervalsHelper
+end

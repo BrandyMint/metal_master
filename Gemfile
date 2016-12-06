@@ -34,6 +34,8 @@ gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
 gem 'active_link_to'
 
+gem 'responders'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
@@ -64,6 +66,20 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
+  gem 'pry-theme'
+
+  gem 'pry-pretty-numeric'
+  # gem 'pry-highlight'
+  # step, next, finish, continue, break
+  gem 'pry-nav'
+
+  gem 'pry-doc'
+  gem 'pry-docmore'
+
+  # Добавляет show-stack
+  gem 'pry-stack_explorer'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

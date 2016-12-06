@@ -1,0 +1,7 @@
+h1 Новый заказ
+
+= simple_form_for @order do |f|
+  .row
+    .col-md-6
+      = f.input :title
+  = f.button :submit

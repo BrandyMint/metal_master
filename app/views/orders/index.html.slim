@@ -1,0 +1,11 @@
+h1 Заказы
+
+= link_to 'Добавить', new_order_path, class: 'btn btn-success'
+br
+br
+table.table.table-condensed.table-striped
+  - @orders.each do |o|
+    tr
+      td= o.title
+      td
+        = link_to 'редактировать', edit_order_path(o)
