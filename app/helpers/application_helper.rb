@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def destroy_button(resource)
+    link_to 'Удалить',
+      order_path(resource),
+      method: :delete,
+      data: { confirm: 'Удалить?' },
+      class: 'btn btn-danger'
+  end
+
   def application_title
     'MetalMaster'
   end

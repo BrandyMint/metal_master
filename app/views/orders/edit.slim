@@ -11,3 +11,6 @@ h1 Редактируем заказ #{@order}
       /.links
         /= link_to_add_association 'Добавить оборудование', f, :order_machine_usages
   = f.button :submit
+hr
+
+= destroy_button @order

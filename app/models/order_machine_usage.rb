@@ -15,7 +15,7 @@ class OrderMachineUsage < ApplicationRecord
     inverse_of: :after_machine_usage,
     foreign_key: :after_machine_usage_id
 
-  has_many :order_machine_usage_intervals
+  has_many :order_machine_usage_intervals, dependent: :delete_all
 
   # none - нет условий для старта, может стратовать с начала процесса
   # after_finish - может стартовать только после окончания указанного оборудования

@@ -11,9 +11,15 @@ class OrdersController < ApplicationController
     respond_with @order
   end
 
+  def destroy
+    @order = Order.find params[:id]
+    @order.destroy
+    respond_with @order
+  end
+
   def create
     @order = Order.create permitted_params
-    respond_with @order
+    respond_with @order, location: -> { orders_path }
   end
 
   def edit
