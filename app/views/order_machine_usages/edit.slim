@@ -1,4 +1,6 @@
-h1 Редактируем используемое в заказе оборудование
-p Заказ: #{@machine_usage.order}
+h1 
+  | Редактируем используемое в заказе оборудование
+  small.text-muted= order_title_link(@machine_usage.order)
+hr
 
 = render 'form'

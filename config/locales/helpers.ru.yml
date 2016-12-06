@@ -1,0 +1,9 @@
+ru:
+  helpers:
+    submit:
+      order:
+        create: 'Создать заказ'
+        update: 'Сохранить изменения'
+      order_machine_usage:
+        create: 'Добавить оборудование в заказ'
+        update: 'Изменить оборудование в заказе'

@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_machine_usages, dependent: :destroy
+  has_many :machines, through: :order_machine_usages
 
   validates :title, presence: true, uniqueness: true
 

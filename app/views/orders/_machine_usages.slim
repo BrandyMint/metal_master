@@ -2,10 +2,10 @@ table.table.table-condensed.table-bordered.table-sm
   thead
     tr
       th Участок
-      - @table[:max_steps].times.each do 
+      - table[:max_steps].times.each do 
         td.text-center Чел.
   tbody
-    - @table[:rows].each do |mu|
+    - table[:rows].each do |mu|
       tr
         td
           = link_to mu.machine, edit_order_order_machine_usage_path(@order, mu)
@@ -15,6 +15,5 @@ table.table.table-condensed.table-bordered.table-sm
           td.text-center &middot;
         - mu.steps.each do |step|
           td.bg-info.text-center= step.workers
-        - (@table[:max_steps] - mu.start_step - mu.steps.count).times.each do
+        - (table[:max_steps] - mu.start_step - mu.steps.count).times.each do
           td.text-center &middot;
-= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-sm btn-success'

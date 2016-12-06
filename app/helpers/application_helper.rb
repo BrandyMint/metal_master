@@ -1,5 +1,14 @@
 module ApplicationHelper
+  def order_title_link(order)
+    link_to order, order_path(order)
+  end
+
+  def machines_collection_not_used_in_order(order, machine_id)
+    Machine.where.not(id: order.machines.pluck(:id) - [machine_id])
+  end
+
   def destroy_button(resource)
+    return unless resource.persisted?
     link_to 'Удалить',
       order_path(resource),
       method: :delete,

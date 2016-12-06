@@ -1,7 +1,5 @@
+.pull-right= link_to 'Добавить', new_order_path, class: 'btn btn-success'
 h1 Заказы
-
-= link_to 'Добавить', new_order_path, class: 'btn btn-success'
-br
 br
 table.table.table-condensed.table-striped
   thead
@@ -21,6 +19,3 @@ table.table.table-condensed.table-striped
         td= o.total_workers
         td= o.average_workers_per_step
         td= o.steps_count
-        td
-          = link_to edit_order_path(o) do
-            = fa_icon :pencil, text: 'изменить'

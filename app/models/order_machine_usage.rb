@@ -22,9 +22,10 @@ class OrderMachineUsage < ApplicationRecord
   # after_start - может стартовать только после указанного количества шагов (skip_steps) после начала указанного использования
   # указанного оборудования
   enumerize :start_condition,
-    in: [:none, :after_finish, :after_start],
+    in: %w(none after_finish after_start),
     default: :none,
     predicates: true,
+    i18n_scope: 'start_condition',
     scope: true
 
   validates :machine_id, uniqueness: { scope: :order_id }
@@ -40,7 +41,7 @@ class OrderMachineUsage < ApplicationRecord
 
   # Применяется в выпадашке
   def to_s
-    machine.to_s
+    "#{machine} (#{total_workers})"
   end
 
   def start_step

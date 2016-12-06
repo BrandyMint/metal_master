@@ -1,6 +1,10 @@
+.pull-right
+  = link_to 'изменить', edit_order_path(@order), class: 'btn btn-outline-secondary'
 h1 Заказ #{@order}
 hr
 
-h3 Используемое оборудование
-br
-= render 'machine_usages', usages: @usages
+- if @table[:rows].present?
+  = render 'machine_usages', table: @table
+- else
+  p.lead.text-muted В заказе еще не используется ни одно оборудование. Добавьте.
+= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-outline-success'

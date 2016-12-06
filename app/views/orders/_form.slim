@@ -1,0 +1,6 @@
+= simple_form_for @order do |f|
+  .row
+    .col-md-6
+      = f.input :title, label: false
+    .col-md-6
+      = f.button :submit, class: 'btn btn-primary', data: { disable_with: 'Подождите..' }

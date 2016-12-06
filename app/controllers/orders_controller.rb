@@ -51,10 +51,9 @@ class OrdersController < ApplicationController
   end
 
   def build_order_table(order)
-    table = {}
-    table[:rows] = build_rows order.order_machine_usages.with_start_condition(:none)
-    table[:max_steps] = table[:rows].map(&:last_step).max
-    table
+    rows = build_rows order.order_machine_usages.with_start_condition(:none)
+    max_steps = rows.map(&:last_step).max
+    { rows: rows, max_steps: max_steps || 0 }
   end
 
   def permitted_params

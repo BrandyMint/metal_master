@@ -1,0 +1,46 @@
+# https://github.com/plataformatec/simple_form#i18n
+ru:
+  simple_form:
+    "yes": 'да'
+    "no": 'нет'
+    required:
+      text: 'обязательное поле'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    include_blanks:
+      #hotel:
+        #hotel_kind_id: 'Любой'
+
+    error_notification:
+      default_message: "Обнаружены ошибки,<br /> пожалуйста, взгляните на&nbsp;них"
+      blank: "Не может быть пустым"
+    confirm: Вы уверены?
+    button:
+      disable_with:
+        sending: Отправляем...
+        saving: Сохраняем...
+        waiting: Подождите...
+        adding: Добавляем...
+    labels:
+      defaults:
+        order_id: Заказ
+      order:
+        title: 
+          Название
+      order_machine_usage:
+        machine: Оборудование
+        start_condition: Условие начала
+        after_machine_usage: Запускать после окончания или старта
+        skip_steps: Пропустить смен
+    hints:
+      order_machine_usage:
+        skip_steps: "Сколько смен пропустить при условии старта 'После начала..'"
+        after_machine_usage: Используется только при наличии стартового условия
+    placeholders:
+      defaults:
+        title: Название
+        machine: Оборудование
+      order:
+        title: 'Заказ для ВКС N123'

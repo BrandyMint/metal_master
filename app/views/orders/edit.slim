@@ -1,16 +1,5 @@
-h1 Редактируем заказ #{@order}
-
-= simple_form_for @order do |f|
-  .row
-    .col-md-6
-      = f.input :title
-  /.row
-    /h3 Используемое оборудование
-    /= f.simple_fields_for :order_machine_usages do |omu|
-      /= render 'order_machine_usage_fields', f: omu
-      /.links
-        /= link_to_add_association 'Добавить оборудование', f, :order_machine_usages
-  = f.button :submit
+.pull-right
+  = destroy_button @order
+h1 Редактируем заказ ##{@order.id}
 hr
-
-= destroy_button @order
+= render 'form'
