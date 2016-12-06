@@ -19,7 +19,7 @@ class OrderMachineUsagesController < ApplicationController
   def update
     @machine_usage = order.order_machine_usages.find params[:id]
     @machine_usage.update permitted_params
-    respond_with @machine_usages, location: -> { order_order_machine_usages_url(order) }
+    respond_with @machine_usage, location: -> { order_order_machine_usages_url(order) }
   end
 
   def index

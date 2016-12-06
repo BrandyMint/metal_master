@@ -1,14 +1,4 @@
 h1 Добавляем оборудование в заказ
+p Заказ: #{@machine_usage.order}
 
-= simple_form_for [@order, @machine_usage] do |f|
-  .row
-    .col-md-6
-      = f.association :machine, include_blank: false
-  /.row
-    /h3 Используемое оборудование
-    /= f.simple_fields_for :order_machine_usages do |omu|
-      /= render 'order_machine_usage_fields', f: omu
-      /.links
-        /= link_to_add_association 'Добавить оборудование', f, :order_machine_usages
-  = f.button :submit, class: 'btn btn-primary'
-
+= render 'form'

@@ -1,24 +1,20 @@
-hr
-h3 Используемое оборудование
-= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-success'
-br
-br
-table.table.table-condensed.table-striped
+table.table.table-condensed.table-bordered.table-sm
   thead
     tr
-      th Оборудование
-      th Смены
-      th Человеко-смен
-      th Человек на смену в среднем
+      th Участок
+      - @table[:max_steps].times.each do 
+        td.text-center Чел.
   tbody
-    - @order.order_machine_usages.each do |mu|
+    - @table[:rows].each do |mu|
       tr
         td
-          b= mu.machine
-          .text-muted= machine_usage_condition_details mu
-        td
-          = render 'steps', steps: mu.order_machine_usage_intervals
-        td= mu.total_workers
-        td= mu.average_workers_per_step
-        td
-          = link_to 'редактировать', edit_order_order_machine_usage_path(@order, mu)
+          = link_to mu.machine, edit_order_order_machine_usage_path(@order, mu)
+          -# .text-muted= machine_usage_condition_details mu
+          span.text-muted= " (#{mu.total_workers} чел-смен)"
+        - mu.start_step.times.each do 
+          td.text-center &middot;
+        - mu.steps.each do |step|
+          td.bg-info.text-center= step.workers
+        - (@table[:max_steps] - mu.start_step - mu.steps.count).times.each do
+          td.text-center &middot;
+= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-sm btn-success'

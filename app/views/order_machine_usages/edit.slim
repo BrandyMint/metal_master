@@ -1,23 +1,4 @@
 h1 Редактируем используемое в заказе оборудование
-
 p Заказ: #{@machine_usage.order}
 
-= simple_form_for [@order, @machine_usage] do |f|
-  = f.error_notification
-  .row
-    .col-md-6
-      = f.association :machine, include_blank: false
-    .col-md-6
-      = f.input :start_condition, include_blank: false
-      = f.association :after_machine_usage
-      = f.input :after_steps
-  .row
-    .col-md-12
-      h3 Смены и люди
-      = f.simple_fields_for :order_machine_usage_intervals do |mui|
-        = render 'order_machine_usage_interval_fields', f: mui
-      .links
-        = link_to_add_association 'Добавить смену', f, :order_machine_usage_intervals, class: 'btn btn-sm btn-success'
-  br
-  br
-  = f.button :submit, class: 'btn btn-primary'
+= render 'form'

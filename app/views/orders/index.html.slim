@@ -15,9 +15,12 @@ table.table.table-condensed.table-striped
   tbody
     - @orders.each do |o|
       tr
-        th= o.title
+        th
+          = link_to o.title, order_path(o)
         td= o.order_machine_usages.count
         td= o.total_workers
         td= o.average_workers_per_step
         td= o.steps_count
-        td= link_to 'редактировать', edit_order_path(o)
+        td
+          = link_to edit_order_path(o) do
+            = fa_icon :pencil, text: 'изменить'

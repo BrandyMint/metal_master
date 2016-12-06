@@ -1,3 +1,6 @@
 h1 Заказ #{@order}
+hr
 
-= render 'machine_usages', order: @order
+h3 Используемое оборудование
+br
+= render 'machine_usages', usages: @usages
