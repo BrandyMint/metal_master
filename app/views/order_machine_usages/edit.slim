@@ -10,6 +10,7 @@ p Заказ: #{@machine_usage.order}
     .col-md-6
       = f.input :start_condition, include_blank: false
       = f.association :after_machine_usage
+      = f.input :after_steps
   .row
     .col-md-12
       h3 Смены и люди

@@ -13,10 +13,12 @@ table.table.table-condensed.table-striped
   tbody
     - @order.order_machine_usages.each do |mu|
       tr
-        th= mu.machine
-        th
+        td
+          b= mu.machine
+          .text-muted= machine_usage_condition_details mu
+        td
           = render 'steps', steps: mu.order_machine_usage_intervals
-        th= mu.total_workers
-        th= mu.average_workers_per_step
+        td= mu.total_workers
+        td= mu.average_workers_per_step
         td
           = link_to 'редактировать', edit_order_order_machine_usage_path(@order, mu)

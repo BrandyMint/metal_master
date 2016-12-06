@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20161206064220) do
     t.integer  "machine_id"
     t.integer  "after_machine_usage_id"
     t.string   "start_condition",        null: false
+    t.integer  "skip_steps"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["after_machine_usage_id"], name: "index_order_machine_usages_on_after_machine_usage_id", using: :btree

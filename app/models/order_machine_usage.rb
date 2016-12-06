@@ -1,6 +1,8 @@
 class OrderMachineUsage < ApplicationRecord
   extend Enumerize
 
+  MAXIMAL_STEPS = 20
+
   belongs_to :order
   belongs_to :machine
 
@@ -10,13 +12,13 @@ class OrderMachineUsage < ApplicationRecord
 
   # none - нет условий для старта, может стратовать с начала процесса
   # after_finish - может стартовать только после окончания указанного оборудования
-  # after_start - может стартовать только после указанного количества шагов (after_steps) после начала указанного использования
+  # after_start - может стартовать только после указанного количества шагов (skip_steps) после начала указанного использования
   # указанного оборудования
-  enumerize :start_condition, in: [:none, :after_finish, :after_start], default: :none
+  enumerize :start_condition, in: [:none, :after_finish, :after_start], default: :none, predicates: true
 
   validates :machine_id, uniqueness: { scope: :order_id }
-
   validates :after_machine_usage, presence: true, if: :after_condition?
+  validates :skip_steps, presence: true, numericality: { greater_than_or_equal_to: 1, less_than: MAXIMAL_STEPS }, if: :after_start?
 
   accepts_nested_attributes_for :order_machine_usage_intervals, reject_if: :all_blank, allow_destroy: true
 
@@ -30,7 +32,7 @@ class OrderMachineUsage < ApplicationRecord
   end
 
   def after_condition?
-    start_condition == :after_finish || start_condition == :after_start
+    after_finish? || after_start?
   end
 
   def average_workers_per_step

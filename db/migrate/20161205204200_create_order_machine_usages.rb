@@ -5,6 +5,7 @@ class CreateOrderMachineUsages < ActiveRecord::Migration[5.0]
       t.references :machine, foreign_key: true
       t.integer :after_machine_usage_id, index: true
       t.string :start_condition, null: false
+      t.integer :skip_steps
 
       t.timestamps
     end

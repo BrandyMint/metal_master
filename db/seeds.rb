@@ -13,6 +13,6 @@ machine3 = Machine.create(title: 'Лентопил')
 
 order = Order.create(title: 'Пробный')
 
-usage1 = order.order_machine_usages.create machine: machine1
-usage2 = order.order_machine_usages.create machine: machine2, start_condition: :after_finish, after_machine_usage: usage1
-usage3 = order.order_machine_usages.create machine: machine3, start_condition: :after_start, after_machine_usage: usage2
+usage1 = order.order_machine_usages.create! machine: machine1
+usage2 = order.order_machine_usages.create! machine: machine2, start_condition: :after_finish, after_machine_usage: usage1
+usage3 = order.order_machine_usages.create! machine: machine3, start_condition: :after_start, after_machine_usage: usage2, skip_steps: 2

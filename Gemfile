@@ -85,6 +85,8 @@ group :development do
   # Добавляет show-stack
   gem 'pry-stack_explorer'
 
+  gem 'guard'
+  gem 'guard-ctags-bundler'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
