@@ -31,19 +31,22 @@ ActiveRecord::Schema.define(version: 20161206064220) do
 
   create_table "order_machine_usage_intervals", force: :cascade do |t|
     t.integer  "order_machine_usage_id",             null: false
-    t.integer  "step",                   default: 1, null: false
+    t.integer  "row_order",                          null: false
     t.integer  "workers",                default: 1, null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
-    t.index ["order_machine_usage_id", "step"], name: "omu_intervals_idx", unique: true, using: :btree
+    t.index ["order_machine_usage_id", "row_order"], name: "omu_intervals_idx", unique: true, using: :btree
     t.index ["order_machine_usage_id"], name: "index_order_machine_usage_intervals_on_order_machine_usage_id", using: :btree
   end
 
   create_table "order_machine_usages", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "machine_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "after_machine_usage_id"
+    t.string   "start_condition",        null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["after_machine_usage_id"], name: "index_order_machine_usages_on_after_machine_usage_id", using: :btree
     t.index ["machine_id"], name: "index_order_machine_usages_on_machine_id", using: :btree
     t.index ["order_id", "machine_id"], name: "index_order_machine_usages_on_order_id_and_machine_id", unique: true, using: :btree
     t.index ["order_id"], name: "index_order_machine_usages_on_order_id", using: :btree
@@ -57,5 +60,6 @@ ActiveRecord::Schema.define(version: 20161206064220) do
 
   add_foreign_key "order_machine_usage_intervals", "order_machine_usages"
   add_foreign_key "order_machine_usages", "machines"
+  add_foreign_key "order_machine_usages", "order_machine_usages", column: "after_machine_usage_id"
   add_foreign_key "order_machine_usages", "orders"
 end

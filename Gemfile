@@ -26,6 +26,9 @@ gem 'semver2'
 gem 'virtus'
 gem 'hashie'
 
+gem 'ranked-model'
+gem 'enumerize'
+
 gem 'simple-navigation', git: 'git://github.com/andi/simple-navigation.git'
 gem 'simple-navigation-bootstrap'
 
