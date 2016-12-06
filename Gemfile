@@ -22,7 +22,7 @@ gem 'slim-rails'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'nprogress-rails'
 gem 'semver2'
-gem 'bugsnag'
+# gem 'bugsnag'
 gem 'virtus'
 gem 'hashie'
 
@@ -33,6 +33,8 @@ gem 'font-awesome-rails'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
 gem 'active_link_to'
+
+gem 'cocoon'
 
 gem 'responders'
 

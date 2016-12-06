@@ -21,6 +21,11 @@ class OrdersController < ApplicationController
     respond_with @order
   end
 
+  def show
+    @order = Order.find params[:id]
+    respond_with @order
+  end
+
   private
 
   def permitted_params

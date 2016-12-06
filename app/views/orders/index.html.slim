@@ -4,8 +4,20 @@ h1 Заказы
 br
 br
 table.table.table-condensed.table-striped
-  - @orders.each do |o|
+  thead
     tr
-      td= o.title
-      td
-        = link_to 'редактировать', edit_order_path(o)
+      th Название
+      th Оборудования
+      th Человеко-смен
+      th Человек на смену в среднем
+      th Смен
+
+  tbody
+    - @orders.each do |o|
+      tr
+        th= o.title
+        td= o.order_machine_usages.count
+        td= o.total_workers
+        td= o.average_workers_per_step
+        td= o.steps_count
+        td= link_to 'редактировать', edit_order_path(o)

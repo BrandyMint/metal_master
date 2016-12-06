@@ -1,0 +1,22 @@
+hr
+h3 Используемое оборудование
+= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-success'
+br
+br
+table.table.table-condensed.table-striped
+  thead
+    tr
+      th Оборудование
+      th Смены
+      th Человеко-смен
+      th Человек на смену в среднем
+  tbody
+    - @order.order_machine_usages.each do |mu|
+      tr
+        th= mu.machine
+        th
+          = render 'steps', steps: mu.order_machine_usage_intervals
+        th= mu.total_workers
+        th= mu.average_workers_per_step
+        td
+          = link_to 'редактировать', edit_order_order_machine_usage_path(@order, mu)
