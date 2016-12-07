@@ -3,8 +3,8 @@ header.navbar.navbar-light.navbar-static-top.bg-faded
     nav
       = link_to application_title, root_url, class: 'navbar-brand'
     ul.nav.navbar-nav
-      = navbar_link_to 'Заказы', orders_path
-      = navbar_link_to 'Оборудование', machines_path
+      = navbar_link_to "Заказы (#{Order.count})", orders_path
+      = navbar_link_to "Техпроцессы (#{Machine.count})", machines_path
       /= navbar_link_to t(:categories), categories_path
       /= navbar_link_to t(:policies), policies_path
       /- if Features.has_webhooks?

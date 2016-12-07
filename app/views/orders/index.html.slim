@@ -1,21 +1,9 @@
-.pull-right= link_to 'Добавить', new_order_path, class: 'btn btn-success'
+.pull-right= link_to 'Добавить', new_order_path, class: 'btn btn-outline-success'
 h1 Заказы
+hr
 br
-table.table.table-condensed.table-striped
-  thead
-    tr
-      th Название
-      th Оборудования
-      th Человеко-смен
-      th Человек на смену в среднем
-      th Смен
+ol
+  - @orders.each do |o|
+    li= link_to o, order_path(o)
 
-  tbody
-    - @orders.each do |o|
-      tr
-        th
-          = link_to o.title, order_path(o)
-        td= o.order_machine_usages.count
-        td= o.total_workers
-        td= o.average_workers_per_step
-        td= o.steps_count
+-# = render 'table'

@@ -17,3 +17,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+
+// $('.collapse').collapse({toggle: false});

@@ -4,7 +4,7 @@ h1 Заказ #{@order}
 hr
 
 - if @table[:rows].present?
-  = render 'machine_usages', table: @table
+  = render 'machine_usages', table: @table, order: @order
 - else
-  p.lead.text-muted В заказе еще не используется ни одно оборудование. Добавьте.
-= link_to 'Добавить', new_order_order_machine_usage_path(@order), class: 'btn btn-outline-success'
+  p.lead.text-muted В заказе еще не используется ни один техпроцесс. Добавьте.
+= link_to 'Добавить техпроцесс', new_order_order_machine_usage_path(@order), class: 'btn btn-outline-success'

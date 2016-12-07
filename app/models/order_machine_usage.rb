@@ -13,14 +13,15 @@ class OrderMachineUsage < ApplicationRecord
   has_many :before_linked_usages,
     class_name: self.name,
     inverse_of: :after_machine_usage,
-    foreign_key: :after_machine_usage_id
+    foreign_key: :after_machine_usage_id,
+    dependent: :destroy
 
   has_many :order_machine_usage_intervals, dependent: :delete_all
 
   # none - нет условий для старта, может стратовать с начала процесса
-  # after_finish - может стартовать только после окончания указанного оборудования
+  # after_finish - может стартовать только после окончания указанного техпроцесса
   # after_start - может стартовать только после указанного количества шагов (skip_steps) после начала указанного использования
-  # указанного оборудования
+  # указанного техпроцесса
   enumerize :start_condition,
     in: %w(none after_finish after_start),
     default: :none,

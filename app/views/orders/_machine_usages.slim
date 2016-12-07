@@ -1,19 +1,22 @@
 table.table.table-condensed.table-bordered.table-sm
   thead
     tr
-      th Участок
+      th Техпроцесс
       - table[:max_steps].times.each do 
         td.text-center Чел.
   tbody
     - table[:rows].each do |mu|
       tr
-        td
-          = link_to mu.machine, edit_order_order_machine_usage_path(@order, mu)
+        td class=machine_usage_row_class(mu)
+          = link_to mu.machine, edit_order_order_machine_usage_path(order, mu)
           -# .text-muted= machine_usage_condition_details mu
           span.text-muted= " (#{mu.total_workers} чел-смен)"
         - mu.start_step.times.each do 
-          td.text-center &middot;
+          td.text-center class=machine_usage_row_class(mu)
+            .text-muted &middot;
         - mu.steps.each do |step|
-          td.bg-info.text-center= step.workers
+          td.bg-info.text-center
+            = step.workers
         - (table[:max_steps] - mu.start_step - mu.steps.count).times.each do
-          td.text-center &middot;
+          td.text-center class=machine_usage_row_class(mu)
+            .text-muted &middot;

@@ -2,5 +2,7 @@
   .row
     .col-md-6
       = f.input :title, label: false
-    .col-md-6
+    .col-md-3
+      = f.input :row_order_position, label: false
+    .col-md-3
       = f.button :submit, class: 'btn btn-primary', data: { disable_with: 'Подождите..' }

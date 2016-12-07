@@ -24,4 +24,9 @@
           = f.input :skip_steps, label: false
   br
   br
-  = f.button :submit, class: 'btn btn-primary'
+  .row
+    .col-md-6
+      = f.button :submit, class: 'btn btn-primary'
+    .col-md-6
+      .pull-right
+        = destroy_button [@order, @machine_usage]

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206064220) do
+ActiveRecord::Schema.define(version: 20161207141234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_row_order_to_machines", force: :cascade do |t|
+    t.integer  "row_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "intervals", force: :cascade do |t|
     t.date     "date",       null: false
@@ -27,6 +33,7 @@ ActiveRecord::Schema.define(version: 20161206064220) do
     t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "row_order"
   end
 
   create_table "order_machine_usage_intervals", force: :cascade do |t|
@@ -57,6 +64,8 @@ ActiveRecord::Schema.define(version: 20161206064220) do
     t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "row_order"
+    t.boolean  "is_active"
   end
 
   add_foreign_key "order_machine_usage_intervals", "order_machine_usages"

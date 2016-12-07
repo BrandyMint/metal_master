@@ -28,6 +28,12 @@ class OrderMachineUsagesController < ApplicationController
     #respond_with @machine_usages
   end
 
+  def destroy
+    usage = order.order_machine_usages.find params[:id]
+    usage.destroy
+    respond_with usage, location: -> { order_order_machine_usages_url(order) }
+  end
+
   private
 
   def order

@@ -3,17 +3,23 @@ module ApplicationHelper
     link_to order, order_path(order)
   end
 
+  def machine_usage_row_class(usage)
+    if usage.steps_count == 0
+      'table-danger'
+    end
+  end
+
   def machines_collection_not_used_in_order(order, machine_id)
-    Machine.where.not(id: order.machines.pluck(:id) - [machine_id])
+    Machine.ordered.where.not(id: order.machines.pluck(:id) - [machine_id])
   end
 
   def destroy_button(resource)
-    return unless resource.persisted?
+    return unless Array.new(resource).last.persisted?
     link_to 'Удалить',
       url_for(resource),
       method: :delete,
       data: { confirm: 'Удалить?' },
-      class: 'btn btn-danger'
+      class: 'btn btn-outline-danger'
   end
 
   def application_title

@@ -1,0 +1,18 @@
+table.table.table-condensed.table-striped
+  thead
+    tr
+      th Название
+      th Техпроцессы
+      th Человеко-смен
+      th Человек на смену в среднем
+      th Смен
+
+  tbody
+    - @orders.each do |o|
+      tr
+        th
+          = link_to o.title, order_path(o)
+        td= o.order_machine_usages.count
+        td= o.total_workers
+        td= o.average_workers_per_step
+        td= o.steps_count

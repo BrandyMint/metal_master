@@ -1,13 +1,19 @@
 class Order < ApplicationRecord
+  include RankedModel
+
   has_many :order_machine_usages, dependent: :destroy
   has_many :machines, through: :order_machine_usages
 
   validates :title, presence: true, uniqueness: true
 
+  scope :active, -> { where is_active: true }
+
+  ranks :row_order
+  scope :ordered, -> { rank :row_order }
   # accepts_nested_attributes_for :order_machines_usages, reject_if: :all_blank, allow_destroy: true
 
   def to_s
-    "[#{id}] #{title}"
+    "[##{id}] #{title} (#{order_machine_usages.count})"
   end
 
   def total_workers

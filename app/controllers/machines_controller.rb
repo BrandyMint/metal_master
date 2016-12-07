@@ -12,7 +12,7 @@ class MachinesController < ApplicationController
    end
 
    def index
-     @machines = Machine.all
+     @machines = Machine.ordered
      respond_with @machines
    end
 

@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   respond_to :html
 
   def index
-    @orders = Order.all
+    @orders = Order.ordered
     respond_with @orders
   end
 
@@ -36,25 +36,11 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find params[:id]
 
-    @table = build_order_table @order
+    @table = OrderTableBuilder.new.build_table @order
     respond_with @order
   end
 
   private
-
-  def build_rows(usages)
-    usages.map do |u|
-      [u] +
-        build_rows(u.before_linked_usages.with_start_condition(:after_start)) +
-        build_rows(u.before_linked_usages.with_start_condition(:after_finish))
-    end.flatten
-  end
-
-  def build_order_table(order)
-    rows = build_rows order.order_machine_usages.with_start_condition(:none)
-    max_steps = rows.map(&:last_step).max
-    { rows: rows, max_steps: max_steps || 0 }
-  end
 
   def permitted_params
     params.require(:order).permit!

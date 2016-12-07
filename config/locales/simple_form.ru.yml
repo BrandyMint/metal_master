@@ -26,21 +26,24 @@ ru:
     labels:
       defaults:
         order_id: Заказ
+        row_order_position: Позиция
       order:
         title: 
           Название
       order_machine_usage:
-        machine: Оборудование
+        machine: Техпроцесс
         start_condition: Условие начала
         after_machine_usage: Запускать после окончания или старта
         skip_steps: Пропустить смен
     hints:
+      defaults:
+        row_order_position: Позиция, начиная с 0
       order_machine_usage:
         skip_steps: "Сколько смен пропустить при условии старта 'После начала..'"
         after_machine_usage: Используется только при наличии стартового условия
     placeholders:
       defaults:
         title: Название
-        machine: Оборудование
+        machine: Техпроцесс
       order:
         title: 'Заказ для ВКС N123'

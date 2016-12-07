@@ -1,0 +1,12 @@
+table.table.table-condensed.table-striped
+  thead
+    tr
+      th Техпроцесс
+      th Используется в заказах
+  tbody
+    - @machines.each do |m|
+      tr
+        td
+          = link_to m.title, edit_machine_path(m)
+        td
+          = m.orders.count
