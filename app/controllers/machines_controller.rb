@@ -16,6 +16,24 @@ class MachinesController < ApplicationController
      respond_with @machines
    end
 
+  def edit
+    @machine = Machine.find params[:id]
+    respond_with @machine
+  end
+
+  def update
+    @machine = Machine.find params[:id]
+    @machine.update permitted_params
+    respond_with @machine
+  end
+
+  def destroy
+    @machine = Machine.find params[:id]
+    @machine.destroy
+    binding.pry
+    respond_with @machine
+  end
+
    private
 
    def permitted_params

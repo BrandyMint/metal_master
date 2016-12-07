@@ -7,3 +7,6 @@ ru:
       order_machine_usage:
         create: 'Добавить оборудование в заказ'
         update: 'Изменить оборудование в заказе'
+      machine:
+        create: 'Добавить участок'
+        update: 'Изменить участок'

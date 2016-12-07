@@ -10,7 +10,7 @@ module ApplicationHelper
   def destroy_button(resource)
     return unless resource.persisted?
     link_to 'Удалить',
-      order_path(resource),
+      url_for(resource),
       method: :delete,
       data: { confirm: 'Удалить?' },
       class: 'btn btn-danger'

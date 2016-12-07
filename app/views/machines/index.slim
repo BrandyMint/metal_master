@@ -1,9 +1,20 @@
+.pull-right
+  = link_to 'Добавить', new_machine_path, class: 'btn btn-outline-success'
 h1 Оборудование (Участнки)
+hr
 
-= link_to 'Добавить', new_machine_path, class: 'btn btn-success'
-br
-br
-table.table.table-condensed.table-striped
-  - @machines.each do |m|
-    tr
-      td= m.title
+- if @machines.present?
+  table.table.table-condensed.table-striped
+    thead
+      tr
+        th Участок
+        th Используется в заказах
+    tbody
+      - @machines.each do |m|
+        tr
+          td
+            = link_to m.title, edit_machine_path(m)
+          td
+            = m.orders.count
+- else
+  p.leader Пока ни одного участка не добавлено. Добавьте.
