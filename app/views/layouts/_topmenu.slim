@@ -5,6 +5,7 @@ header.navbar.navbar-light.navbar-static-top.bg-faded
     ul.nav.navbar-nav
       = navbar_link_to "Заказы (#{Order.count})", orders_path
       = navbar_link_to "Техпроцессы (#{Machine.count})", machines_path
+      = navbar_link_to "Рабочие даты", work_dates_path
       /= navbar_link_to t(:categories), categories_path
       /= navbar_link_to t(:policies), policies_path
       /- if Features.has_webhooks?

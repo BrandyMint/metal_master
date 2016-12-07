@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :intervals
   root 'welcome#index'
 
+  resources :work_dates
+  resources :intervals
   resources :machines
   resources :orders do
     resources :order_machine_usages do

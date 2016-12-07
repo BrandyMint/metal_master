@@ -1,0 +1,8 @@
+= simple_form_for @work_date do |f|
+  .row
+    .col-md-6
+      = f.input :date, label: false, as: :string
+    .col-md-3
+      = f.input :is_business
+    .col-md-3
+      = f.button :submit, class: 'btn btn-primary', data: { disable_with: 'Подождите..' }

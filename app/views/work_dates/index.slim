@@ -1,0 +1,17 @@
+.pull-right
+  = link_to 'Добавить', new_work_date_path, class: 'btn btn-outline-success'
+h1 Рабочие даты
+hr
+
+table.table
+  thead
+    tr
+      th Дата
+      th День недели
+      th Рабочий
+  tdoby
+    - @work_dates.each do |wd|
+      tr class=work_date_row_class(wd)
+        td= wd.date
+        td= l wd.date, format: '%A'
+        td= wd.is_business

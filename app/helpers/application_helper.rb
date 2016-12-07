@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def work_date_row_class(wd)
+    wd.is_business? ? 'table-success' : 'table-danger'
+  end
+
   def order_title_link(order)
     link_to order, order_path(order)
   end

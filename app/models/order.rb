@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   # accepts_nested_attributes_for :order_machines_usages, reject_if: :all_blank, allow_destroy: true
 
   def to_s
-    "[##{id}] #{title} (#{order_machine_usages.count})"
+    "#{title} (#{order_machine_usages.count})"
   end
 
   def total_workers
