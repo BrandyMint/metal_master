@@ -5,7 +5,7 @@ class WorkDatesController < ApplicationController
   end
 
   def new
-    @work_date = WorkDate.new date: default_date, is_business: is_business_day?(default_date)
+    @work_date = WorkDate.new default_work_date
     respond_with @work_date
   end
 
@@ -42,9 +42,17 @@ class WorkDatesController < ApplicationController
     !(date.saturday? || date.sunday?)
   end
 
+  def default_work_date
+    permitted_params.presence || { date: default_date, workers: default_workers }
+  end
+
   def default_date
     date = WorkDate.ordered.last.try(:date)
     date.present? ? date + 1.day : Date.current
+  end
+
+  def default_workers
+    wd = WorkDate.ordered.where('workers > 0').last.try(:workers) || WorkDate::DEFAULT_WORKERS
   end
 
   def permitted_params

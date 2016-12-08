@@ -7,14 +7,15 @@ table.table
   thead
     tr
       th Дата
+      th Номер смены
       th Работников
-      th День недели
-      th Рабочий?
   tdoby
     - @work_dates.each do |wd|
       tr class=work_date_row_class(wd)
         td
           = link_to wd.date, edit_work_date_path(wd)
+          = ' '
+          small.text-muted= l wd.date, format: '%A'
+        td
+          = wd.exchange
         td= wd.workers
-        td= l wd.date, format: '%A'
-        td= wd.is_business

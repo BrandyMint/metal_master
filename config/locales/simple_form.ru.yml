@@ -41,6 +41,10 @@ ru:
       order_machine_usage:
         skip_steps: "Сколько смен пропустить при условии старта 'После начала..'"
         after_machine_usage: Используется только при наличии стартового условия
+      work_date:
+        workers: Работников
+        exchange: Смена
+        date: Дата
     placeholders:
       defaults:
         title: Название

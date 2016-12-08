@@ -1,3 +1,7 @@
 h1 Изменяем дату
 hr
 = render 'form'
+hr
+= link_to 'Добавить смену в эту дату', 
+  new_work_date_path(work_date: { date: @work_date.date, exchange: @work_date.exchange + 1, workers: @work_date.workers }),
+  class: 'btn btn-outline-secondary'
