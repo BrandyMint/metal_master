@@ -1,7 +1,9 @@
 = simple_form_for @work_date do |f|
   .row
-    .col-md-6
+    .col-md-3
       = f.input :date, label: false, as: :string
+    .col-md-3
+      = f.input :workers, label: false
     .col-md-3
       = f.input :is_business
     .col-md-3

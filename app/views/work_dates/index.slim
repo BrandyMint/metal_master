@@ -7,11 +7,14 @@ table.table
   thead
     tr
       th Дата
+      th Работников
       th День недели
-      th Рабочий
+      th Рабочий?
   tdoby
     - @work_dates.each do |wd|
       tr class=work_date_row_class(wd)
-        td= wd.date
+        td
+          = link_to wd.date, edit_work_date_path(wd)
+        td= wd.workers
         td= l wd.date, format: '%A'
         td= wd.is_business

@@ -24,7 +24,7 @@ class OrderMachineUsage < ApplicationRecord
   # указанного техпроцесса
   enumerize :start_condition,
     in: %w(none after_finish after_start),
-    default: :none,
+    default: 'none',
     predicates: true,
     i18n_scope: 'start_condition',
     scope: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207164257) do
+ActiveRecord::Schema.define(version: 20161208053414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20161207164257) do
     t.datetime "updated_at", null: false
     t.integer  "row_order"
     t.boolean  "is_active"
+    t.string   "color"
   end
 
   create_table "work_dates", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161207164257) do
     t.boolean  "is_business", default: true, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "workers",     default: 0,    null: false
     t.index ["date"], name: "index_work_dates_on_date", unique: true, using: :btree
   end
 

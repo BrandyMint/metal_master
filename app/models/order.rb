@@ -1,5 +1,8 @@
 class Order < ApplicationRecord
   include RankedModel
+  COLORS = %w(#dff0d8 #d9edf7 #fcf8e3 #f2dede #d9534f #f0ad4e #5bc0de #5cb85c #0275d8)
+
+  attribute :color, :string, default: COLORS.first
 
   has_many :order_machine_usages, dependent: :destroy
   has_many :machines, through: :order_machine_usages
