@@ -18,7 +18,8 @@ module ApplicationHelper
   end
 
   def destroy_button(resource)
-    return unless Array[ resource ].last.persisted?
+    last_resource = resource.is_a?(Array) ? resource.last : resource
+    return unless last_resource.persisted?
     link_to 'Удалить',
       url_for(resource),
       method: :delete,
