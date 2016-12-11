@@ -86,6 +86,7 @@ group :development do
   gem 'pry-stack_explorer'
 
   gem 'guard'
+  gem 'guard-minitest'
   gem 'guard-ctags-bundler'
 end
 

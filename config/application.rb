@@ -15,7 +15,7 @@ module MetalMaster
     config.i18n.default_locale = :ru
 
     # config.web_console.whitelisted_ips = '10.101.0.0/16, 192.168.0.0/16'
-    config.web_console.whiny_requests = false
+    # config.web_console.whiny_requests = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

@@ -2,8 +2,10 @@
 
 one:
   date: 2016-12-07
-  is_business: false
+  workers: 7
+  exchange: 1
 
 two:
   date: 2016-12-07
-  is_business: false
+  workers: 8
+  exchange: 2

@@ -30,5 +30,4 @@ class OrderMachineUsagesControllerTest < ActionDispatch::IntegrationTest
     get order_machine_usages_update_url
     assert_response :success
   end
-
 end

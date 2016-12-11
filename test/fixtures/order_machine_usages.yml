@@ -3,7 +3,9 @@
 one:
   order: one
   machine: one
+  start_condition: none
 
 two:
   order: two
   machine: two
+  start_condition: none

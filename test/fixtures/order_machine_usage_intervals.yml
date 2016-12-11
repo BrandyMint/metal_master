@@ -3,7 +3,9 @@
 one:
   order_machine_usage: one
   workers: 1
+  row_order: 1
 
 two:
   order_machine_usage: two
   workers: 1
+  row_order: 2
