@@ -4,5 +4,9 @@ cache:
   bundler: true
 bundler_args: --without test --jobs 3 --retry 3
 
+before_script:
+  - psql -U postgres -c 'create database metal_master_test;'
+  - bundle exec rake db:migrate
+
 rvm:
   - 2.3.3
