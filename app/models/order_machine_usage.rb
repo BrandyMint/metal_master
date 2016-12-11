@@ -5,6 +5,7 @@ class OrderMachineUsage < ApplicationRecord
 
   belongs_to :order
   belongs_to :machine
+  belongs_to :site
 
   # Предыдущий шаг
   belongs_to :after_machine_usage, class_name: self.name, required: false

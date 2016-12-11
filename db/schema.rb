@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208054856) do
+ActiveRecord::Schema.define(version: 20161211151509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 20161208054856) do
     t.string   "color"
   end
 
+  create_table "sites", force: :cascade do |t|
+    t.integer  "machine_id", null: false
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["machine_id", "title"], name: "index_sites_on_machine_id_and_title", unique: true, using: :btree
+    t.index ["machine_id"], name: "index_sites_on_machine_id", using: :btree
+  end
+
   create_table "work_dates", force: :cascade do |t|
     t.date     "date",                   null: false
     t.datetime "created_at",             null: false
@@ -82,4 +91,5 @@ ActiveRecord::Schema.define(version: 20161208054856) do
   add_foreign_key "order_machine_usages", "machines"
   add_foreign_key "order_machine_usages", "order_machine_usages", column: "after_machine_usage_id"
   add_foreign_key "order_machine_usages", "orders"
+  add_foreign_key "sites", "machines"
 end
