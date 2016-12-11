@@ -27,6 +27,10 @@ class MachinesController < ApplicationController
     respond_with @machine
   end
 
+  def show
+    redirect_to edit_machine_url(params[:id])
+  end
+
   def destroy
     @machine = Machine.find params[:id]
     @machine.destroy

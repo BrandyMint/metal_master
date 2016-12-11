@@ -32,8 +32,7 @@ class WorkDatesController < ApplicationController
   end
 
   def show
-    @work_date = WorkDate.find params[:id]
-    respond_with @work_date
+    redirect_to edit_work_date_path params[:id]
   end
 
   private
@@ -52,10 +51,10 @@ class WorkDatesController < ApplicationController
   end
 
   def default_workers
-    wd = WorkDate.ordered.where('workers > 0').last.try(:workers) || WorkDate::DEFAULT_WORKERS
+    WorkDate.ordered.where('workers > 0').last.try(:workers) || WorkDate::DEFAULT_WORKERS
   end
 
   def permitted_params
-    params.require(:work_date).permit!
+    params.fetch(:work_date, {}).permit!
   end
 end
