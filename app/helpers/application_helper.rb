@@ -1,4 +1,9 @@
 module ApplicationHelper
+
+  def color_box(color)
+    content_tag :div, '&nbsp;'.html_safe, class: 'color-box', style: "background-color: #{color}"
+  end
+
   def current_user
     'Василий'
   end

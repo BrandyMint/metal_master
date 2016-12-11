@@ -4,6 +4,8 @@ hr
 br
 ol
   - @orders.each do |o|
-    li= link_to o, order_path(o)
+    li
+      = color_box o.color
+      = link_to o, order_path(o)
 
 -# = render 'table'

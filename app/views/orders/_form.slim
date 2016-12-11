@@ -5,6 +5,8 @@
     .col-md-3
       = f.input :row_order_position, label: false
     .col-md-3
-      = f.input :color, label: false
+      = f.input :color, as: :minicolors, label: false, input_html: {data: { minicolors: {theme: :bootstrap, position: :right}}}
+      /= f.input :color, label: false do
+        /= f.select :color, order_colors, include_blank: false, class: 'form-control'
 
   = f.button :submit, class: 'btn btn-primary', data: { disable_with: 'Подождите..' }
