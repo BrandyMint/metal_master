@@ -1,4 +1,7 @@
-# README
+# MetalMaster
+
+[![Build
+Status](https://travis-ci.org/BrandyMint/metal_master.svg?branch=master)](https://travis-ci.org/BrandyMint/metal_master)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
