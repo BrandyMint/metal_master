@@ -30,7 +30,6 @@ class MachinesController < ApplicationController
   def destroy
     @machine = Machine.find params[:id]
     @machine.destroy
-    binding.pry
     respond_with @machine
   end
 

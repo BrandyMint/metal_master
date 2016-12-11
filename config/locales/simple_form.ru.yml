@@ -27,6 +27,7 @@ ru:
       defaults:
         order_id: Заказ
         row_order_position: Позиция
+        color: Цвет
       order:
         title: 
           Название
@@ -38,6 +39,7 @@ ru:
     hints:
       defaults:
         row_order_position: Позиция, начиная с 0
+        color: Цвет
       order_machine_usage:
         skip_steps: "Сколько смен пропустить при условии старта 'После начала..'"
         after_machine_usage: Используется только при наличии стартового условия

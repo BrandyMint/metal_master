@@ -3,6 +3,7 @@ class CreateSites < ActiveRecord::Migration[5.0]
     create_table :sites do |t|
       t.references :machine, foreign_key: true, null: false
       t.string :title, null: false
+      t.integer :row_order
 
       t.timestamps
     end
@@ -13,13 +14,15 @@ class CreateSites < ActiveRecord::Migration[5.0]
   end
 
   def down
-    remove_column :order_machine_usages, :site_id
     drop_table :sites
   end
 
   private
 
   def reseed
+    Order.find_each do |o|
+      o.update color: Order::COLORS.first
+    end
     Machine.find_each do |m|
       m.sites.create! title: m.title
     end

@@ -1,6 +1,8 @@
 h1 
-  | Редактируем используемое в заказе техпроцесс
-  small.text-muted= order_title_link(@machine_usage.order)
+  | Заказ 
+  = order_title_link(@machine_usage.order)
+  | : 
+  small.text-muted редактируем техпроцесс
 hr
 
 = render 'form'

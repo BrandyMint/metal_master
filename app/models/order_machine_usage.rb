@@ -5,7 +5,6 @@ class OrderMachineUsage < ApplicationRecord
 
   belongs_to :order
   belongs_to :machine
-  belongs_to :site
 
   # Предыдущий шаг
   belongs_to :after_machine_usage, class_name: self.name, required: false
@@ -30,7 +29,7 @@ class OrderMachineUsage < ApplicationRecord
     i18n_scope: 'start_condition',
     scope: true
 
-  validates :machine_id, uniqueness: { scope: :order_id }
+  # validates :machine_id, uniqueness: { scope: :order_id }
   validates :after_machine_usage, presence: true, if: :after_condition?
   validates :skip_steps,
     presence: true,

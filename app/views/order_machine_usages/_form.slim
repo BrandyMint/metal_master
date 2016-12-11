@@ -2,7 +2,7 @@
   = f.error_notification
   .row
     .col-md-6
-      = f.association :machine, include_blank: false, label: false, collection: machines_collection_not_used_in_order(@order, @machine_usage.machine_id)
+      = f.association :machine, include_blank: false, label: false, collection: machines_collection_for_order(@order, @machine_usage.machine_id)
       br
       h3 Количество человек в сменах:
       hr

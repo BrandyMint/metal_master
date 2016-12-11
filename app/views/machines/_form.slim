@@ -4,5 +4,19 @@
       = f.input :title, label: false
     .col-md-3
       = f.input :row_order_position, label: false
-    .col-md-3
-      = f.button :submit
+  .row
+
+  h3 Участки
+  = f.simple_fields_for :sites do |site|
+    = render 'site_fields', f: site
+  .links
+    = link_to_add_association 'Добавить участок', f, :sites, class: 'btn btn-sm btn-outline-primary'
+
+  br
+  br
+  .row
+    .col-md-6
+      = f.button :submit, class: 'btn btn-primary'
+    .col-md-6
+      .pull-right
+        = destroy_button @machine

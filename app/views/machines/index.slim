@@ -4,9 +4,19 @@ h1 Техпроцессы
 hr
 
 - if @machines.present?
-  ol
-    - @machines.each do |m|
-      li= link_to m.title, edit_machine_path(m)
+  table.table.table-sm.table-striped
+    thead.thead-inverse
+      tr
+        th Техпроцесс
+        th Участки
+        th Заказы 
+    tbody
+      - @machines.each do |m|
+        tr
+          td= link_to m.title, edit_machine_path(m)
+          td
+            small.text-muted= " (#{m.sites.map(&:title).join(', ')})"
+          td= m.orders.count
 
 - else
   p.leader Пока ни одного техпроцесса не добавлено. Добавьте.

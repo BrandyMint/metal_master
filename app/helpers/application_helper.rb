@@ -13,8 +13,9 @@ module ApplicationHelper
     end
   end
 
-  def machines_collection_not_used_in_order(order, machine_id)
-    Machine.ordered.where.not(id: order.machines.pluck(:id) - [machine_id])
+  def machines_collection_for_order(order, machine_id)
+    Machine.ordered
+    # Machine.ordered.where.not(id: order.machines.pluck(:id) - [machine_id])
   end
 
   def destroy_button(resource)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161211151509) do
+ActiveRecord::Schema.define(version: 20161211155116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20161211151509) do
     t.datetime "updated_at",             null: false
     t.index ["after_machine_usage_id"], name: "index_order_machine_usages_on_after_machine_usage_id", using: :btree
     t.index ["machine_id"], name: "index_order_machine_usages_on_machine_id", using: :btree
-    t.index ["order_id", "machine_id"], name: "index_order_machine_usages_on_order_id_and_machine_id", unique: true, using: :btree
     t.index ["order_id"], name: "index_order_machine_usages_on_order_id", using: :btree
   end
 
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20161211151509) do
   create_table "sites", force: :cascade do |t|
     t.integer  "machine_id", null: false
     t.string   "title",      null: false
+    t.integer  "row_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["machine_id", "title"], name: "index_sites_on_machine_id_and_title", unique: true, using: :btree

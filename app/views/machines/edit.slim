@@ -1,5 +1,11 @@
-.pull-right
-  = destroy_button @machine
 h1 Редактируем техпроцесс
 hr
 = render 'form'
+
+br
+hr
+- if @machine.orders.exists?
+  h2 Применяется в заказах
+  = render 'orders/table', orders: @machine.orders
+- else
+  p.lead В заказах не применяется

@@ -8,12 +8,12 @@ class Order < ApplicationRecord
   has_many :machines, through: :order_machine_usages
 
   validates :title, presence: true, uniqueness: true
+  validates :color, presence: true
 
   scope :active, -> { where is_active: true }
 
   ranks :row_order
   scope :ordered, -> { rank :row_order }
-  # accepts_nested_attributes_for :order_machines_usages, reject_if: :all_blank, allow_destroy: true
 
   def to_s
     "#{title} (#{order_machine_usages.count})"
