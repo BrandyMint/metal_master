@@ -10,6 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require nprogress
+ *= require nprogress-bootstrap
+ *= require nprogress-turbolinks5
  *= require_tree .
  *= require_self
  */
@@ -22,10 +25,12 @@
 }
 
 #content {
-  padding-top: 1em;
+  padding-top: 5em;
 }
 
 #footer {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  margin-top: 2em;
+  border-top: 1px solid #eee;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }

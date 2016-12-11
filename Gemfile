@@ -20,7 +20,6 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views', git: 'https://github.com/klacointe/bootstrap-kaminari-views', branch: 'bootstrap4'
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.0.0.alpha5'
-gem 'nprogress-rails'
 gem 'semver2'
 # gem 'bugsnag'
 gem 'virtus'
@@ -39,16 +38,28 @@ gem 'active_link_to'
 
 gem 'cocoon'
 
+gem 'semver2'
+# gem 'gravatarify'
+
 gem 'responders'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
+  gem 'rails-assets-better-dom'
+  gem 'rails-assets-better-i18n-plugin'
+  gem 'rails-assets-better-popover-plugin'
+  gem 'rails-assets-better-form-validation'
 end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'nprogress-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+# gem 'jquery-minicolors-rails'
+# Математические операции над rgb
+gem 'color'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
